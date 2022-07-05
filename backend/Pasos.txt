@@ -1,0 +1,13 @@
+#Pasos para crear el Backend
+1. Generar el archivo package.json con el comando npm init
+2. Instalar express con el comando npm i express
+3. Creamos el archivo index.js, el cual va a tener la configuración del servidor
+4. Importar express en el index.js con el comando const express = require("express");
+4.1 Para trabajar con el import, en el package.json, en la parte principal agregamos "type":"module", y reemplazamos el comando anterior por el siguiente: import express from "express";
+5. Creamos la constante app y le asignamos el valor de la función express (const express = require("express");)
+6. Con la constante app, llamamos el metodo liste, le mandamos dos parametros, el primero es el número de puerto, el segundo una funcióde callback donde mandamos a imprimir en consola que el servidor se esta ejecutando en dicho puerto.
+7. Para ejecutar el servidor, vamos al package.json, en la parte de scripts y generamos los entradas: "dev": "node index.js","start":"node index.js",
+8. En la consola, ejecutamos alguno de los dos scripts con el comando npm run dev o npm start
+9. Para que el servidor sincronice solo cada vez que digitamos una linea nueva de código, instalamos nodemon en modo desarrollo con el siguiente comando npm i -D nodemon, para ejecutar el nodemon, modificamos el script dev de la siguiente manera: "nodemon index.js"
+
+
