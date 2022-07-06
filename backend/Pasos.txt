@@ -70,3 +70,30 @@
     );
 5. Declaramos la constante User y le asignamos el model de mongoose (const User = mongoose.model("User", userSchema);)
 6. Hacemos un export default del User (export default Usuario;)
+
+#Routing Usuarios
+1. Crear un nuevo directorio en la raiz llamado routes
+2. Crear un nuevo archivo js llamado userRoutes.js dentro de routes
+3. importamos express
+4. Declaramos la constante userRouter y le asginamos la funcion express.Router()
+5. Declaramos el metodo get en el userRouter:
+    //metodo get
+    userRouter.get("/", (req, res) => {
+        res.json({
+            "msg": "Desde API/USUARIOS"
+        })
+    });
+6. Exportamos el router con export default userRouter;
+7. En el index importamos el userRouter (import userRouter from "./routes/userRouter.js";)
+8. Declaramos el llamado get del routing en el index.js (app.get('/api/users', userRouter);)
+9. Declaramos el metodo Post en el userRouter:
+    //metodo post
+    userRouter.post("/", (req, res) => {
+        res.send({
+            "msg": "Desde POST/API/USUARIOS"
+        })
+    });
+10. Declaramos el llamado get del routing en el index.js (app.get('/api/users', userRouter);)
+
+
+
