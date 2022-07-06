@@ -15,6 +15,21 @@
 2. Crear un directorio de configuración y adentro crear el archivo db.js
 3. importamos la librería MONGOOSE
 4. Creamos la función conectarDB:
+    const conectarDB = async () => {
+    try {
+        const connection = await mongoose.connect(
+                process.env.MONGO_URI,
+                {
+                    useNewURLParser: true,
+                    useUnifiedTopology: true
+                }
+            );
+        const url = `${connection.connection.host}:${connection.connection.port}`;
+        console.log(`MongoDB conectado: ${url}`);
+    } catch (error) {
+        console.log(`Error: ${error.message}`);
+        process.exit(1);        
+    }
 5. Importamos el archivo de configuración db.js en el index.js
 6. En el index.js llamamos la función conectarDB
 7. Instalamos la librería dotenv con el comando npm i dotenv, la cual nos permite crear variables de entorno para ocultar la conexion de la Backend
@@ -22,3 +37,36 @@
 9. Llamamos la función dotenv.config() y en la raiz del proyecto creamos el archivo .env
 10. En el archivo .env creamos la variable MONGO_URI y le cargamos el string de conexion
 11. En el archivo db.js, cargamos la variable MONGO_URI en lugar de la cadena de conexion
+
+#Modelo de Usuarios
+1. Crear un nuevo directorio en la raiz llamado Models
+2. Crear un nuevo archivo js llamado User.js dentro de Models
+3. Dentro de User.js importamos MONGOOSE
+4.Declaramos el schema de Usuario (schema es la estructura de la tabla en la BD):
+    const schemaUser = mongoose.Schema({
+        name: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        password: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        email: {
+            type: String,
+            required: true,
+            trim: true,
+            unique: true
+        },
+        token: {
+            type: String
+        }
+    }, 
+        {
+            timestamps: true
+        }
+    );
+5. Declaramos la constante User y le asignamos el model de mongoose (const User = mongoose.model("User", userSchema);)
+6. Hacemos un export default del User (export default Usuario;)
