@@ -10,4 +10,15 @@
 8. En la consola, ejecutamos alguno de los dos scripts con el comando npm run dev o npm start
 9. Para que el servidor sincronice solo cada vez que digitamos una linea nueva de código, instalamos nodemon en modo desarrollo con el siguiente comando npm i -D nodemon, para ejecutar el nodemon, modificamos el script dev de la siguiente manera: "nodemon index.js"
 
-
+#Pasos para conectar a MONGODB
+1. Instalamos MONGOOSE con el comando npm i MONGOOSE
+2. Crear un directorio de configuración y adentro crear el archivo db.js
+3. importamos la librería MONGOOSE
+4. Creamos la función conectarDB:
+5. Importamos el archivo de configuración db.js en el index.js
+6. En el index.js llamamos la función conectarDB
+7. Instalamos la librería dotenv con el comando npm i dotenv, la cual nos permite crear variables de entorno para ocultar la conexion de la Backend
+8. En el index.js importamos la extension dotenv
+9. Llamamos la función dotenv.config() y en la raiz del proyecto creamos el archivo .env
+10. En el archivo .env creamos la variable MONGO_URI y le cargamos el string de conexion
+11. En el archivo db.js, cargamos la variable MONGO_URI en lugar de la cadena de conexion
