@@ -95,5 +95,18 @@
     });
 10. Declaramos el llamado get del routing en el index.js (app.get('/api/users', userRouter);)
 
+#Controlador Usuarios
+1. Crear un nuevo directorio en la raiz llamado controllers
+2. Crear un nuevo archivo js llamado userController.js dentro de controllers
+3. Creamos una funcion para obtener los Usuarios: 
+    const getUsers = (req, res) => {
+        res.json({
+            "msg": "Desde API/USUARIOS"
+        })
+    };
+4. Generamos un export para exportar la funcion que acabamos de crear, aqui se exportan todas las funciones que tengamos en el controller (export { getUsers };) 
+5. En el archivo userRouter.js importamos el userController, en el metodo get cambiamos todo el segundo parametro por la funcion que acabamos de crear del controller (userRouter.get("/", getUsers);)
+
+ 
 
 
