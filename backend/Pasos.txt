@@ -152,6 +152,15 @@
         }    
     }
 
+#Autenticacion de usuarios
+1. Creamos una nueva ruta en archivo userRouter.js (userRouter.post("/login", getUser);), el segundo parametro es el metodo getUser, el cual se debe crear en el userController.js
+2. En el userController.js creamos la estuctura basica del metodo getUser y la agregamos en el export:
+    const getUser = async (req, res){
+
+    }
+
+    export { getUsers, createUser, getUser };
+3. En el userRouter.js, buscamos el import del controlador y agregamos el metodo que acabamos de crear (import { getUsers, createUser, getUser } from '../controller/userController.js';)
 
  
 
