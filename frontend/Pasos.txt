@@ -1,0 +1,10 @@
+#Instalar frontend
+1. Con el cmd ir al directorio principal del proyecto(Login)
+2. Ejecutar el siguiente comando npm create vite@lastest, si da error usar el siguiente npm create vite
+3. El programa preguntara si desea instalar unos paquetes, digitan y
+4. Solicita el nombre del proyecto, para este caso el nombre va a ser frontend
+5. Se seleciona el framework react
+6. Luego seleccionamos react para trabajar con js
+7. Ingresamos al directorio frontend con el comando: cd frontend
+8. Ejecutamos el comando npm install para instalar el proyecto react
+9. Ejecutamos npm run dev para ejecutar el proyecto
