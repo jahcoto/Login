@@ -35,24 +35,24 @@ const createUser = async (req, res) => {//Indicamos que la funcion tiene que ser
 
 const getUser = async (req, res) => {//Indicamos que la funcion tiene que ser asincrona
     //Comprobar si ya hay un usuario con el mismo email
-    const userEmail = req.body.email;
-    const userPassword = req.body.password;
+    const userEmail = req.body.email;//Extraemos el email y lo asignamos a la constante userEmail
+    const userPassword = req.body.password;//Extraemos el password y lo asignamos a la constante userPassword
 
-    console.log(userEmail + userPassword);
+    //console.log(userEmail + userPassword);
 
-    const user = await userModel.findOne({userEmail})
-    if (user){
+    const user = await userModel.findOne({userEmail})//Hacemos una busqueda con el finOne con el parametro de userEmail
+    if (user){//Si devuelve un usuario, se extrae toda la informacion del usuario y se realiza la validacion del password
         if (user.password === userPassword){
-            res.json({
+            res.json({//Si los passwords concuerdan se devuelve un json con la informacion del usuario
                 user
             });    
-        }else{
+        }else{//Si los passwords no concuerdan se devuelve un error con res.json
             res.json({
                 "msg": "Error: Password incorrecto!"
             });
         }
         
-    }else{
+    }else{//Si no se encuentra el usuario se devuelve un error con res.json
         res.json({
             "msg": "Error: Usuario el usuario no esta registrado!"
         });
