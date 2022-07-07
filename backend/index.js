@@ -16,7 +16,7 @@ conectarDB();
 //Con el USE podemos usar cualquiera de los 4 verbos de http sin tener que indicar cual es
 app.use('/api/users', userRouter);
 
-const PORT = process.env.PORT || 4008;
+const PORT = process.env.PORT || 4009;
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

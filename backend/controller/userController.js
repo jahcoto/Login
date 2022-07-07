@@ -10,8 +10,9 @@ const getUsers = (req, res) => {
 const createUser = async (req, res) => {//Indicamos que la funcion tiene que ser asincrona
 
     //Comprobar si ya hay un usuario con el mismo email
-    const { userEmail } = req.body;//Este metodo de asignacion, se llama desestructuracion, req.body tiene el campo email entre otra informacion
-    const user = await userModel.findOne({userEmail})//Se realiza una consulta a MONGO, el metodo findone busca el primer registro que encuentre con el campo ingresado entre {}
+    const userEmail = req.body.email;//Este metodo de asignacion, se llama desestructuracion, req.body tiene el campo email entre otra informacion
+    const user = await userModel.findOne({email: userEmail});//Se realiza una consulta a MONGO, el metodo findone busca el primer registro que encuentre con el campo ingresado entre {}
+    console.log(userEmail + user);
     if (user){//Validamos si ya hay un registro con el email que digitamos, si es asi mandamos un mensaje de error
         res.json({
             "msg": "El email digitado ya se encuentra en uso!"
@@ -40,7 +41,7 @@ const getUser = async (req, res) => {//Indicamos que la funcion tiene que ser as
 
     //console.log(userEmail + userPassword);
 
-    const user = await userModel.findOne({userEmail})//Hacemos una busqueda con el finOne con el parametro de userEmail
+    const user = await userModel.findOne({email: userEmail})//Hacemos una busqueda con el finOne con el parametro de userEmail
     if (user){//Si devuelve un usuario, se extrae toda la informacion del usuario y se realiza la validacion del password
         if (user.password === userPassword){
             res.json({//Si los passwords concuerdan se devuelve un json con la informacion del usuario
